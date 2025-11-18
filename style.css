@@ -7,9 +7,9 @@
 }
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 120px;
 }
 body {
-  margin: 10px;
   min-height: 100vh;
   background: linear-gradient(
     135deg,
@@ -43,8 +43,8 @@ body {
 .header-text {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   text-align: center;
   color: #d1cccc;
   gap: 20px;
@@ -84,16 +84,20 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 10px;
+  gap: 20px;
+  padding: 12px 20px; /* more spacing = more readable */
   margin: 5px auto;
-  background: rgba(1, 42, 74, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  border-radius: 30px;
+  background: rgba(10, 32, 60, 0.55); /* deeper, richer glass */
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1.2px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45); /* smoother shadow */
+  border-radius: 40px;
   z-index: 1000;
+  color: white; /* make text readable */
+  font-weight: 600; /* sharper text */
 }
+
 nav ul {
   display: flex;
   align-items: center;
@@ -153,9 +157,9 @@ span {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   text-align: center;
-  min-height: 100vh; 
+  min-height: 100vh;
 }
 .social-icons {
   display: flex;
@@ -175,31 +179,31 @@ span {
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.2);
-   padding: 0 !important;
-    margin: 0;
+  padding: 0 !important;
+  margin: 0;
 }
 .social-icons i {
   display: block;
   line-height: 1;
   color: #fff;
   font-size: 22px;
-   line-height: 1 !important;
-    font-size: 22px;
-    margin: 10px !important;
-    padding: 0 !important;
+  line-height: 1 !important;
+  font-size: 22px;
+  margin: 10px !important;
+  padding: 0 !important;
 }
 .social-icons a:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: translateY(-4px);
 }
 @media (max-width: 768px) {
-    .social-icons a {
-        width: 45px !important;
-        height: 45px !important;
-    }
-    .social-icons i {
-        font-size: 20px !important;
-    }
+  .social-icons a {
+    width: 45px !important;
+    height: 45px !important;
+  }
+  .social-icons i {
+    font-size: 20px !important;
+  }
 }
 /* ---------------------ABOUT ME ------------------------------ */
 #about {
@@ -379,7 +383,7 @@ span {
   width: 100%;
   height: 0;
   padding: 0 40px;
-  background: rgba(255, 255, 255, 0.1); 
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   position: absolute;
   left: 0;
@@ -395,11 +399,11 @@ span {
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
   border: 1px solid rgba(97, 165, 194, 0.3);
-  box-shadow: 0 8px 25px rgba(1, 42, 74, 0.3);   
+  box-shadow: 0 8px 25px rgba(1, 42, 74, 0.3);
 }
 .layer a {
   margin-top: 20px;
-  color:#ffffff;
+  color: #ffffff;
   text-decoration: none;
   font-size: 18px;
   line-height: 60px;
@@ -426,10 +430,12 @@ span {
   margin-left: 0;
   margin-bottom: 0;
 }
-.btn, .btn2 {
+.btn,
+.btn2 {
   margin: 25px auto;
 }
-form input, form textarea {
+form input,
+form textarea {
   margin: 10px 0;
 }
 
@@ -465,6 +471,15 @@ form input, form textarea {
   transform: scale(1.05);
 }
 /* ---------------------contact------- */
+
+#msg {
+    display: block !important;
+    margin-top: 12px !important;
+    text-align: center !important;
+    color: #ffffff !important;
+    font-size: 16px !important;
+}
+
 #contact {
   padding: 80px 0;
   color: #fff;
@@ -507,7 +522,7 @@ form input, form textarea {
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.2);
- margin: 0;
+  margin: 0;
   padding: 0;
 }
 .icon-glass i {
@@ -586,6 +601,8 @@ form .btn2:hover {
 .bottom-nav {
   display: none;
 }
+
+
 .copyright {
   width: 100%;
   text-align: center;
@@ -622,7 +639,7 @@ form .btn2:hover {
     flex-basis: 60%;
   }
   .contact-left p {
-    margin: 30px;
+    margin-left: 30px;
     font-size: 18px;
   }
   .contact-left {
@@ -678,15 +695,20 @@ form .btn2:hover {
   .phone {
     margin-right: 8px;
   }
-  /* --------------------------- */
+  #msg {
+  display: block;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff; 
+}
   .menu1 {
     display: none;
   }
-  #msg {
-    color: #000;
-    margin-top: -40px;
-    display: block;
-  }
+ #msg {
+    color: #ffffff; 
+}
+
 }
 @media screen and (max-width: 600px) {
   #about {
@@ -704,7 +726,7 @@ form .btn2:hover {
   .header-text h6 {
     font-size: 25px;
   }
-   .btn:hover {
+  .btn:hover {
     box-shadow: 0 0 25px rgba(0, 180, 216, 0.9), 0 0 50px rgba(0, 180, 216, 0.7);
     transform: scale(1.05);
   }
@@ -761,7 +783,7 @@ form .btn2:hover {
   }
   .sub-title {
     margin-top: 20px;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
     font-size: 28px;
   }
   .tab-contents ul {
@@ -775,6 +797,9 @@ form .btn2:hover {
   .tab-links {
     font-size: 16px;
     margin-right: 20px;
+  }
+  .contact-info {
+    margin-bottom: 0px !important;
   }
   .contact-left,
   .contact-right {
@@ -795,54 +820,52 @@ form .btn2:hover {
     max-width: 400px;
   }
   .services-list {
-        grid-template-columns: 1fr;
-        grid-gap: 15px;
-        padding: 0 10px;
-    }
-
-    .services-list div {
-        padding: 15px;
-        border-radius: 8px;
-        font-size: 14px;
-    }
-
-    .services-list div h2 {
-        font-size: 20px !important;
-    }
-
-    .services-list div p {
-        font-size: 14px !important;
-        line-height: 1.4;
-    }
-     #header {
-        height: auto !important;   
-        min-height: auto !important;
-        padding-bottom: 0 !important;
-        margin-bottom: 0 !important;
-    }
-
-    .header-text {
-        padding-bottom: 0 !important;
-        margin-bottom: 0 !important;
-    }
-
-    #header .container {
-        padding-bottom: 0 !important;
-    }
-
-    
-    .contact-section {
-        margin-bottom: 5px !important;
-    }
-.header-text {
-    margin-top: 50px !important; 
-    gap: 2px !important;          
+    grid-template-columns: 1fr;
+    grid-gap: 15px;
+    padding: 0 10px;
   }
 
- 
+  .services-list div {
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .services-list div h2 {
+    font-size: 20px !important;
+  }
+
+  .services-list div p {
+    font-size: 14px !important;
+    line-height: 1.4;
+  }
+  #header {
+    height: auto !important;
+    min-height: auto !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .header-text {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #header .container {
+    padding-bottom: 0 !important;
+  }
+
+  .contact-section {
+    margin-bottom: 5px !important;
+  }
+  .header-text {
+    margin-top: 50px !important;
+    gap: 2px !important;
+  }
+
   #about img {
-        margin-top: 0 !important;
-    }
+    margin-top: 0 !important;
+  }
   @media (max-width: 768px) {
     .row {
       flex-direction: column;
@@ -917,29 +940,32 @@ form .btn2:hover {
   nav {
     display: none !important;
   }
-  .bottom-nav{
+  .bottom-nav {
     display: flex;
     justify-content: space-between;
   }
   .bottom-nav {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: calc(100% - 60px);
+    max-width: 420px;
+
     display: flex;
     gap: 20px;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    inset: auto 40px 80px 0px;
-    margin: 0 auto;
-    width: calc(100% - 60px);
-    max-width: 420px;
+
     padding: 3px 10px;
     border-radius: 60px;
-    background: rgba(10, 32, 60, 0.6); /* dark bluish glass */
+
+    background: rgba(10, 32, 60, 0.6);
     backdrop-filter: blur(14px) saturate(140%);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
     border: 1.2px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    animation: bn-slide 420ms ease both;
-    z-index: 2000;
   }
 
   @keyframes bn-slide {
@@ -979,10 +1005,20 @@ form .btn2:hover {
     outline: none;
     box-shadow: none;
   }
-  .layer { padding: 0 10px; font-size: 12px; }
-  .layer h3 { font-size: 1rem; margin-bottom: 12px; }
-  .layer a { width: 45px; height: 45px; font-size: 14px; line-height: 45px; }
-
+  .layer {
+    padding: 0 10px;
+    font-size: 12px;
+  }
+  .layer h3 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  .layer a {
+    width: 45px;
+    height: 45px;
+    font-size: 14px;
+    line-height: 45px;
+  }
 
   @keyframes bn-pulse {
     0% {
@@ -1077,10 +1113,11 @@ form .btn2:hover {
   .header-text h6 {
     font-size: 0.92rem;
   }
-  section, #contact {
-  padding-top: 80px;
-  padding-bottom: 80px;
-}
+  section,
+  #contact {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
 
   #about,
   #services,
@@ -1094,8 +1131,8 @@ form .btn2:hover {
   }
   .container,
   .row {
-   margin: 0 auto;
-   padding: 20px 10px;
+    margin: 0 auto;
+    padding: 20px 10px;
   }
 }
 @media (max-width: 768px) {
@@ -1105,7 +1142,7 @@ form .btn2:hover {
     text-align: center;
   }
   .layer h3 {
-    font-size: 1rem; 
+    font-size: 1rem;
     margin-bottom: 12px;
   }
   .work .layer {
@@ -1132,7 +1169,7 @@ form .btn2:hover {
   }
 
   .layer a i {
-    font-size: 16px; 
+    font-size: 16px;
   }
 }
 @media (max-width: 768px) {
@@ -1163,7 +1200,8 @@ form .btn2:hover {
     font-size: 14px;
     line-height: 45px;
   }
-  html, body {
+  html,
+  body {
     overflow-x: hidden !important;
     width: 100%;
     max-width: 100%;
@@ -1181,5 +1219,3 @@ form .btn2:hover {
     padding-top: 40px !important;
   }
 }
-
-

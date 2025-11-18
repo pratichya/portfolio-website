@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Portfolio</title>
+    <title>Pratichya Giri</title>
     <link rel="icon" href="./images/logo.png" type="image/png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://kit.fontawesome.com/cee04f8a65.js" crossorigin="anonymous"></script>
+<script> scr="script.js"</script>
 </head>
 
 <body>
@@ -160,29 +161,28 @@
                             <div class="icon-glass"><i class="fa-solid fa-location-dot"></i></div>
                             <p>Pokhara, Nepal</p>
                         </div>
-                        <a href="images/CV.pdf" download class="btn btn2">Download CV</a>
+                        <a href="images/cv.pdf" download class="btn btn2">Download CV</a>
                       </div>
                 </div>
  
                 <!-- RIGHT SIDE -->
                 <div class="contact-right">
-                    <form action="https://api.web3forms.com/submit" method="post">
+                    <form id="contactForm">
                         <input type="hidden" name="access_key" value="50b95e26-0a5f-4df5-8881-72c0ce09fb7c">
                         <input type="text" name="Name" placeholder="Your Name" required>
                         <input type="email" name="Email" placeholder="Your Email" required>
                         <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
                         <button type="submit" class="btn btn2">Submit</button>
-                    </form>
                     <span id="msg"></span>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="copyright">
-        <p><i>Copyright © Pratichya Giri. All rights reserved.</i>
-        </p>
-    </div>
+  <p><i>Copyright © <span id="year"></span> Pratichya Giri. All rights reserved.</i></p>
+</div>
     </div>
     <div class="bottom-nav">
         <a href="#header" aria-label="Home"><i class="fas fa-home"></i></a>
@@ -208,26 +208,25 @@
     event.currentTarget.classList.add("active-link");
     document.getElementById(tabname).classList.add("active-tab");
 }
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyxyyengxq9ua_mEJ0ooWefH6D_PkQtbPRRKDnZMw1ktHNlHJz4CPKMlsMzKGbVYr8TnQ/exec'
-    const form = document.forms['submit-to-google-sheet']
-    const msg = document.getElementById("msg")
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        fetch(scriptURL, {
-                method: 'POST',
-                body: new FormData(form)
-            })
-            .then(response => {
-                msg.innerHTML = "Message sent sucessfully"
-                setTimeout(function() {
-                    msg.innerHTML = ""
-                }, 5000)
-                form.reset();
-            })
-            .catch(error => console.error('Error!', error.message))
+    const formData = new FormData(this);
+
+    fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
     })
-
+    .then(response => response.json())
+    .then(result => {
+        document.getElementById("msg").innerHTML = "Message sent successfully!";
+        setTimeout(() => document.getElementById("msg").innerHTML = "", 5000);
+        this.reset();
+    })
+    .catch(error => {
+        document.getElementById("msg").innerHTML = "Something went wrong!";
+    });
+});
     const navLinks = document.querySelectorAll("nav ul li a");
     const sections = document.querySelectorAll("section, div[id]");
 
@@ -316,7 +315,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
-
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "UzTqcVYsDROVOPxs3",
+      });
+   })();
+</script>
 
 
 
