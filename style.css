@@ -310,7 +310,7 @@ span {
   position: relative;
 }
 .services-list div h2 {
-  font-size: 30px;
+  font-size: 22px;
   font-weight: 500;
   margin-bottom: 15px;
 }
@@ -1219,3 +1219,45 @@ form .btn2:hover {
     padding-top: 40px !important;
   }
 }
+
+/* NEW */
+/* ===== PROJECTS HORIZONTAL AUTO SCROLL (DESKTOP) ===== */
+/* ===== INFINITE PROJECT SCROLL ===== */
+.projects-scroll {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: infiniteScroll 35s linear infinite;
+}
+
+.scroll-track:hover {
+  animation-play-state: paused;
+}
+
+.work {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+.work img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+/* KEY ANIMATION */
+@keyframes infiniteScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
